@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div class="container markdown top-pad">
+  {{ .Content }}
+    <dl>
+      <dt>Duration</dt>
+      <dd>{{ .Params.movingtime | duration "second" }}</dd>
+      <dt>Average heartrate</dt>
+      <dd>{{ .Params.averageheartrate}}</dd>
+      <dt>Max heartrate</dt>
+      <dd>{{ .Params.maxheartrate}}</dd>
+
+    </dl>
+</div>
+    <!-- End post content -->
+    {{ partial "comments.html" . }}
+{{ end }}

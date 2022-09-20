@@ -1,0 +1,59 @@
+---
+resourcestate: 2
+athlete:
+    id: 71447788
+    resourcestate: 1
+title: Pajarin marssi
+distance: 25405.8
+movingtime: 16156
+elapsedtime: 18419
+totalelevationgain: 208.9
+type: Walk
+sporttype: Walk
+id: 7670066995
+startdate: 2022-08-20T08:37:07Z
+startdatelocal: 2022-08-20T11:37:07Z
+timezone: (GMT+02:00) Europe/Helsinki
+utcoffset: 10800
+locationcity: null
+locationstate: null
+locationcountry: Finland
+achievementcount: 0
+kudoscount: 2
+commentcount: 0
+athletecount: 1
+photocount: 0
+map:
+    id: a7670066995
+    summarypolyline: mwwuJotgoCu@kAsA?wChDcAlDMpFn@xBf@`GRn@PdFdAn@jBNbFfClBnBxQxIrKtHtB~DVfDk@`HUnPeBjQ`A~I~C~D~ArCtApAn@pDIpQNjEz@dLp@tDi@jHrAlJRvFe@zE?hCmAtCPf@`AkCjAx@Cm@hAvBhAp@wEkE_EjKw@`DeB`BgG|TqCpTQbCkB`CoAlE_@zCcClEkC|AAX_AJaFfCqCjBmE\_C`BgCf@y@fCwE|H]vA}@zKNpEdBjMVpF[`DgA|CaCbC}APuA}@oAwDa@a@yDDw@t@k@nBq@bAaBVuBzAcB`EgBfHqAlDwCbLcC|NqBzGyA~GyApJeA~CgJ`Ow@lCy@nG{@pAcAl@wArDc@hFNxGsAlI?tDNbAMlBYv@g@JmAw@yGQiEeDyNiHkE{HaEsC}CcGsCoJ{C}BkAWwAFMbBIONOSa@wEcEgL_QyHwFmGcC]_Am@Wu@eA_Cm@_BoByAg@w@iAe@O}@qBwAs@yC@aCn@qIw@uEZ}DnAqD|BoDd@eF[Sx@JdBJYKcAO_@g@MiBz@oBxEu@dAEg@e@`@uAhCkBl@wBa@mEmEoA{BiFcGi@iAaEuDiAmBgEaDY}@yA_BiHqM{AgHiDu_@@a\^sA^QpCwFzBqCl@oAIYxA_B^_AbFqFpEkB|BoDZ_BdAgCxBaM~@eBrCmL`DaI@eAd@gBf@k@rB_FzCsDh@P|@~ApABrAw@~BeE~AbPvAvHThEh@hBbLtRp@d@rBH~@hApBbDhEv@jB]pBiBbDd@`FnHx@~@l@IC\IMt@u@lEkC`AwAvAiFpBcMbDeKnBgJ~@oCvDqXrCsGlBdBI{CN_Bf@cBdDsG~DaFZiAzAqBvBwAh@mAvC_PNgCrAsHbDsE\mBDoBUaDWk@]Cc@uA{AuB{D}CaBSwC_BmGw@}HoM}@oCfDoIzBeO`@sAn@`AnAdEzAKtAeBr@oBh@yCnAmVl@oELiFlAmF~GqLxEaGvBkAzIsAz@mG^a@ZgBxB{EfCmEjBqH`C{G~@sAJaAhAGb@c@jAiEbCaEj@[Jm@x@kA`BaBhAE|@gAJg@^G`AoAh@GDg@?TPB\e@hAExB}@pA_Af@F`AtBrAFgC|H_A|Ao@nEHr@`A`BhBzA|CxEb@|A^pFr@~El@zBb@V~A}@fIMGbDJ|BJD?pHb@rEGvCnO~BpDpAvIfFX_Cs@{Iq@oE]w@FcCp@gCfCkCxA_@|A|@x@k@TqCa@?
+    resourcestate: 2
+trainer: false
+commute: false
+manual: false
+private: false
+visibility: everyone
+flagged: false
+gearid: null
+startlatlng:
+    - 61.40295
+    - 23.63736
+endlatlng:
+    - 61.40246667
+    - 23.63829
+averagespeed: 1.573
+maxspeed: 5.04
+hasheartrate: true
+averageheartrate: 110.2
+maxheartrate: 133
+heartrateoptout: false
+displayhideheartrateoption: true
+uploadid: 8185117169
+uploadidstr: "8185117169"
+externalid: 2022-08-20_14-45-52_7cec7962-0fbc-4808-ba15-c67a63a6317d.tcx
+fromacceptedtag: false
+prcount: 0
+totalphotocount: 0
+haskudoed: false
+draft: false
+---
+Pajarin marssi

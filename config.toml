@@ -1,0 +1,22 @@
+baseURL = 'https://ernestikoskela.pages.dev/'
+languageCode = 'en-us'
+title = 'Ernesti Koskela'
+theme = 'introduction'
+
+[params]
+    dateFormat	 = "02 Jan 2006"
+    fadeIn       = false
+    fadeInIndex  = false
+    customCSS 	 = ["css/train.css"]
+
+# Social icons appear in introduction and contact section. Add as many more as you like.
+# Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
+# Icon pack "fas" includes solid style icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
+[[params.social]]
+url   = "https://twitter.com/ernestikoskela"
+icon  = "twitter" # icon name without the 'fa-'
+icon_pack = "fab"
+[[params.social]]
+url   = "https://github.com/ernestikoskela"
+icon  = "github" # icon name without the 'fa-'
+icon_pack = "fab"
