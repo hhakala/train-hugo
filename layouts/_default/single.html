@@ -1,9 +1,5 @@
 {{ define "main" }}
 <div class="container markdown top-pad">
-  {{ .Content }}
-  <div id="map"></div>
-  <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>
-  <p id="map-start" style="display:none">[{{ index .Params.startlatlng 0}}, {{ index .Params.startlatlng 1}}]</p>
   <dl>
     <dt>Duration</dt>
     <dd>{{ .Params.movingtime | duration "second" }}</dd>
@@ -12,6 +8,19 @@
     <dt>Max heartrate</dt>
     <dd>{{ .Params.maxheartrate}}</dd>
   </dl>
+  {{ if .Params.startlatlng }}
+  <div id="map"></div>
+  <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>
+  <p id="map-start" style="display:none">[{{ index .Params.startlatlng 0}}, {{ index .Params.startlatlng 1}}]</p>
+  {{ end }}
+  <script>
+    {{ $hrFile := (printf "%v%v" "hr" .Params.id ) }}
+    {{ $hrFile}}
+    const hrvalues = {{ index $.Site.Data $hrFile }};
+  </script>
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
 </div>
 <!-- End post content -->
 {{ partial "comments.html" . }}
