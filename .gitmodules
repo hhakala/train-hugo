@@ -1,0 +1,3 @@
+[submodule "assets/js/Leaflet.encoded"]
+	path = assets/js/Leaflet.encoded
+	url = https://github.com/jieter/Leaflet.encoded.git
