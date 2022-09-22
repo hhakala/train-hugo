@@ -9,3 +9,26 @@ var encoded = $("p#map-polyline").text();
 var polyline = L.Polyline.fromEncoded(encoded);
 polyline.addTo(map);
 map.fitBounds(polyline.getBounds());
+
+const labels = hrvalues[0].data
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Heart rate',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: hrvalues[1].data,
+  }]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+
+const myChart = new Chart(
+  document.getElementById('myChart'),
+  config
+);
