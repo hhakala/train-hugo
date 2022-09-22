@@ -12,3 +12,13 @@ dd {
     grid-column-start: 2;
     padding: 5px;
 }
+
+#map {
+    height: 300px;
+}
+
+#map img {
+    border: 0px;
+    box-shadow: none;
+    margin: 0px;
+}
