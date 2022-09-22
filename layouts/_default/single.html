@@ -1,16 +1,18 @@
 {{ define "main" }}
 <div class="container markdown top-pad">
   {{ .Content }}
-    <dl>
-      <dt>Duration</dt>
-      <dd>{{ .Params.movingtime | duration "second" }}</dd>
-      <dt>Average heartrate</dt>
-      <dd>{{ .Params.averageheartrate}}</dd>
-      <dt>Max heartrate</dt>
-      <dd>{{ .Params.maxheartrate}}</dd>
-
-    </dl>
+  <div id="map"></div>
+  <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>
+  <p id="map-start" style="display:none">[{{ index .Params.startlatlng 0}}, {{ index .Params.startlatlng 1}}]</p>
+  <dl>
+    <dt>Duration</dt>
+    <dd>{{ .Params.movingtime | duration "second" }}</dd>
+    <dt>Average heartrate</dt>
+    <dd>{{ .Params.averageheartrate}}</dd>
+    <dt>Max heartrate</dt>
+    <dd>{{ .Params.maxheartrate}}</dd>
+  </dl>
 </div>
-    <!-- End post content -->
-    {{ partial "comments.html" . }}
+<!-- End post content -->
+{{ partial "comments.html" . }}
 {{ end }}
