@@ -14,9 +14,8 @@
   <p id="map-start" style="display:none">[{{ index .Params.startlatlng 0}}, {{ index .Params.startlatlng 1}}]</p>
   {{ end }}
   <script>
-    {{ $hrFile := (printf "%v%v" "hr" .Params.id ) }}
-    {{ $hrFile}}
-    const hrvalues = {{ index $.Site.Data $hrFile }};
+    {{ $idString := (printf "%v" .Params.id ) }}
+    const chartdata = {{ index $.Site.Data $idString }};
   </script>
   <div>
     <canvas id="myChart"></canvas>
