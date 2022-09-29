@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container top-pad">
+<div class="container markdown top-pad">
   <nav class="level">
     <div class="level-item has-text-centered">
       <div>
@@ -25,7 +25,8 @@
 	<p class="title">{{ .Params.maxheartrate }}</p>
       </div>
     </div>
-  </nav>
+  </nav>	
+  {{ end }}
   {{ if .Params.startlatlng }}
   <div id="map"></div>
   <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>

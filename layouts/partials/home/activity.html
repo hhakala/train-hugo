@@ -1,0 +1,75 @@
+{{ with .Site.GetPage "/activity" }}
+<div class="section" id="{{ .Title | urlize }}">
+    <!-- Begin Blog container -->
+    <div class="container">
+    <h2 class="title is-2 top-pad">{{ i18n "index_activity_latestActivity" . }}</h2>
+    {{ range first 1 .Pages.ByPublishDate.Reverse }}
+    <div class="summary">
+        {{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
+        <h3 class="title is-3 strong-post-title">
+            <a href="{{ .Permalink }}">
+              {{ .Title | markdownify }}
+            </a>
+        </h3>
+	<nav class="level">
+	  <div class="level-item has-text-centered">
+	    <div>
+	      <p class="heading">{{ i18n "duration" . }}</p>
+	      <p class="title">{{ .Params.movingtime | duration "second" }}</p>
+	    </div>
+	  </div>
+	  <div class="level-item has-text-centered">
+	    <div>
+	      <p class="heading">{{ i18n "distance" . }}</p>
+	      <p class="title">{{ .Params.distance }} m</p>
+	    </div>
+	  </div>
+	  <div class="level-item has-text-centered">
+	    <div>
+	      <p class="heading">{{ i18n "average_heartrate" . }}</p>
+	      <p class="title">{{ .Params.averageheartrate }}</p>
+	    </div>
+	  </div>
+	  <div class="level-item has-text-centered">
+	    <div>
+	      <p class="heading">{{ i18n "max_heartrate" . }}</p>
+	      <p class="title">{{ .Params.maxheartrate }}</p>
+	    </div>
+	  </div>
+	</nav>	
+    </div>
+    <div>
+      {{ if .Params.startlatlng }}
+      <div id="map"></div>
+      <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>
+      <p id="map-start" style="display:none">[{{ index .Params.startlatlng 0}}, {{ index .Params.startlatlng 1}}]</p>
+      {{ end }}
+    </div>
+    {{ end }}    
+    </div>
+</div>
+{{ if .Site.Params.home.showAllPosts }}
+<div class="section" id="all-posts">
+    <div class="container">
+        <h2 class="title is-2 top-pad">{{ i18n "index_blog_allPosts" . }}</h2>
+        {{if .Site.Params.home.allPostsArchiveFormat}}
+        {{ partialCached "blog/archive.html" .}}
+        {{else}}
+            {{ partialCached "blog/li.html" . }}
+            {{end}}
+    </div>
+</div>
+{{ else }}
+<div class="container has-text-centered top-pad">
+    <a href="{{ .Permalink }}">{{ i18n "index_activity_allActivities" . }}</a>
+</div>
+{{ end }}
+
+<!-- End Blog container -->
+{{ partial "top-icon.html" . }}
+
+<!-- End Blog section -->
+<div class="container">
+    <hr>
+</div>
+{{ end }}
