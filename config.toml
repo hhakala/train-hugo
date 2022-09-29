@@ -1,5 +1,6 @@
 baseURL = 'https://ernestikoskela.pages.dev/'
-languageCode = 'en-us'
+languageCode = 'fi'
+defaultContentLanguage = 'fi'
 title = 'Ernesti Koskela'
 theme = 'introduction'
 
@@ -21,3 +22,31 @@ icon_pack = "fab"
 url   = "https://github.com/ernestikoskela"
 icon  = "github" # icon name without the 'fa-'
 icon_pack = "fab"
+[[params.social]]
+url   = "https://www.strava.com/athletes/71447788"
+icon  = "strava" # icon name without the 'fa-'
+icon_pack = "fab"
+
+[params.share]
+twitter                  = true
+
+# If you don't want to use the default menu, you can define one by yourself
+[[menu.main]]
+    name    = "Etusivu"
+    url     = "/"
+    weight  = 1
+[[menu.main]]
+    name    = "Urheilu"
+    url     = "/activity/"
+    weight  = 0
+
+[languages]
+    [languages.fi]
+        languageName     = "Suomi"
+        languageCode     = "fi"
+        contentDir       = "content/"
+        weight           = 0
+        title            = "Introduction"
+        [languages.fi.params]
+            description  = "Ernesti Koskelan urheilublogi"   # Max 160 characters show in search results
+            # footerText   = ""                      # Text to override default footer text (markdown allowed)
