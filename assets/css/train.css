@@ -22,3 +22,17 @@ dd {
     box-shadow: none;
     margin: 0px;
 }
+
+nav.level {
+    display:flex;
+}
+
+div.level-item {
+    align-items: center;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: 5px;
+}
