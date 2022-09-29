@@ -1,5 +1,5 @@
 ---
-title: "Ernesti Koskela training blog"
+title: "Ernesti Koskelan urheilublogi"
 draft: false
 weight: 0
 ---
