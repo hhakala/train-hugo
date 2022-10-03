@@ -24,9 +24,9 @@
 [footer_text]
     other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) theme for [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://victoria.dev) by open source contributors."
 [index_activity_latestActivity]
-    other = "Viimeisin urheilusuoritus"
+    other = "Viimeisin juoksulenkki"
 [index_activity_allActivities]
-    other = "Kaikki suoritukset"
+    other = "Kaikki juoksut"
 [duration]
     other = "Kesto"
 [distance]
@@ -35,3 +35,9 @@
     other = "Sykkeen keskiarvo"
 [max_heartrate]
     other = "Maksimisyke"
+[summary_run]
+	other = "Juoksu"
+[summary_walk]
+	other = "Kävely"
+[summary_workout]
+	other = "Liikkuvuus- ja voimaharjoitukset"
