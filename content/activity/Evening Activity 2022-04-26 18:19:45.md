@@ -3,16 +3,16 @@ resourcestate: 2
 athlete:
     id: 71447788
     resourcestate: 1
-title: Evening Workout
+title: Evening Activity
 distance: 0
-movingtime: 1515
-elapsedtime: 1515
+movingtime: 1719
+elapsedtime: 1719
 totalelevationgain: 0
-type: Workout
-sporttype: Workout
-id: 7403809092
-startdate: 2022-07-02T15:47:08Z
-startdatelocal: 2022-07-02T18:47:08Z
+type: WeightTraining
+sporttype: WeightTraining
+id: 7044382065
+startdate: 2022-04-26T15:19:45Z
+startdatelocal: 2022-04-26T18:19:45Z
 timezone: (GMT+02:00) Europe/Helsinki
 utcoffset: 10800
 locationcity: null
@@ -24,7 +24,7 @@ commentcount: 0
 athletecount: 1
 photocount: 0
 map:
-    id: a7403809092
+    id: a7044382065
     summarypolyline: ""
     resourcestate: 2
 trainer: true
@@ -39,18 +39,18 @@ endlatlng: []
 averagespeed: 0
 maxspeed: 0
 hasheartrate: true
-averageheartrate: 92.6
-maxheartrate: 131
+averageheartrate: 97.7
+maxheartrate: 119
 heartrateoptout: false
 displayhideheartrateoption: true
-uploadid: 7890081880
-uploadidstr: "7890081880"
-externalid: 2022-07-02_16-13-34_7d437d4e-3b7c-41fa-bf57-662982336ad0.tcx
+uploadid: 7498198152
+uploadidstr: "7498198152"
+externalid: 2022-04-26_15-59-42_9e573fbf-72fc-4c65-8e54-2964c2c07dfc.tcx
 fromacceptedtag: false
 prcount: 0
 totalphotocount: 0
 haskudoed: false
 draft: false
-date: 2022-07-02 18:47:08 +0000 UTC
+date: 2022-04-26 18:19:45 +0000 UTC
 ---
-Evening Workout
+Evening Activity
