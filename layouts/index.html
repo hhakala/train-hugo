@@ -13,10 +13,9 @@
     <body>
 
       {{ with .Site.GetPage "/home" }}
-        <section id="top" class="hero is-{{ .Site.Params.home.introHeight | default "fullheight" }}">
+        <section id="top" class="hero">
             <!-- Hero head section to play nice with Bulma -->
             <div class="hero-head"></div>
-
             <!-- Super sweet Hero body title -->
             <div class="hero-body">
                 <div class="container has-text-centered">
@@ -33,6 +32,7 @@
                         {{ partial "home/social.html" . }}
                     </div>
                     <!-- End top social icons -->
+		    {{ partial "home/activity-summary.html" . }}
                 </div>
             </div> <!-- End of Hero body -->
             {{ end }}

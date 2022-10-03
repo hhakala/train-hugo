@@ -1,6 +1,6 @@
 {{ with .Site.GetPage "/activity" }}
 <div class="section" id="{{ .Title | urlize }}">
-    <!-- Begin Blog container -->
+    <!-- Begin activity container -->
     <div class="container">
     <h2 class="title is-2 top-pad">{{ i18n "index_activity_latestActivity" . }}</h2>
     {{ range first 1 .Pages.ByPublishDate.Reverse }}
