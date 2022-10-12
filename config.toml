@@ -36,9 +36,24 @@ twitter                  = true
     url     = "/"
     weight  = 1
 [[menu.main]]
-    name    = "Urheilu"
-    url     = "/activity/"
-    weight  = 0
+    name    = "Juoksu"
+    url     = "/run/"
+    weight  = 2
+[[menu.main]]
+    name    = "Kävely"
+    url     = "/walk/"
+    weight  = 3
+[[menu.main]]
+    name    = "Liikkuvuus"
+    url     = "/workout/"
+    weight  = 4
+[[menu.main]]
+    name    = "Voima"
+    url     = "/weighttraining/"
+    weight  = 5
+
+
+
 
 [languages]
     [languages.fi]
