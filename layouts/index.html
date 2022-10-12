@@ -31,8 +31,6 @@
                     <div class="{{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in three{{ end }}">
                         {{ partial "home/social.html" . }}
                     </div>
-                    <!-- End top social icons -->
-		    {{ partial "home/activity-summary.html" . }}
                 </div>
             </div> <!-- End of Hero body -->
             {{ end }}
@@ -43,11 +41,14 @@
             </div>
         </section> <!-- Done with Hero -->
 
+        <!-- End top social icons -->
+	{{ partial "home/activity-summary.html" . }}
+
         {{ with .Site.GetPage "/home" }}
         {{ $home := . }}
         {{ $pages := .Resources.ByType "page" }}
 
-        {{ with .Site.GetPage "/activity" }}
+        {{ with .Site.GetPage "/run" }}
             {{ $pages = $pages | append . }}
         {{ end }}
 
@@ -61,7 +62,7 @@
         {{ if eq (os.Stat .File.Dir).Name "projects" }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
-        {{ else if eq (os.Stat .File.Dir).Name "activity" }}
+        {{ else if eq (os.Stat .File.Dir).Name "run" }}
             <!-- Let`s show some blog posts -->
             {{ partial "home/activity.html" . }}
         {{ else }}

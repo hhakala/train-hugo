@@ -1,19 +1,19 @@
-{{ with .Site.GetPage "/activity" }}
 <div class="section" id="{{ .Title | urlize }}">
   <!-- Begin activity summary container -->
   <div class="container">
-    <h2 class="title is-2">Vuonna 2022</h2>
+    {{ $thisYear := now.Year }}
+    <h2 class="title is-2">Vuonna {{ $thisYear }}</h2>
     <div class="summary">
       <hr/>
+      {{ $startOfYear := printf "%d-01-01 00:00:00" $thisYear }}
       <h3 class="title">{{ i18n "summary_run" . }}</h3>
-      {{ $startOfYear := $t.Year }}
       <nav class="level">
 	<div class="level-item has-text-centered">
 	  <div>
 	    <p class="heading">{{ i18n "duration" . }}</p>
 	    {{ $totalTime := 0 }}
-	    {{ range where .Pages "Params.sporttype" "Run" }}
-	    {{ if (time .Params.startdate).After (time "2022-01-01 00:00:00") }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $totalTime = add $totalTime .Params.elapsedtime }}
 	    {{ end }}
 	    {{ end }}
@@ -24,8 +24,8 @@
 	  <div>
 	    <p class="heading">{{ i18n "distance" . }}</p>
 	    {{ $totalDistance := 0 }}
-	    {{ range where .Pages "Params.sporttype" "Run" }}
-	    {{ if (time .Params.startdate).After (time "2022-01-01 00:00:00") }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $totalDistance = add $totalDistance .Params.distance }}
 	    {{ end }}
 	    {{ end }}
@@ -38,13 +38,15 @@
 	    <p class="heading">{{ i18n "average_heartrate" . }}</p>
 	    {{ $avgHeartrate := 0 }}
 	    {{ $runs := 0 }}
-	    {{ range where .Pages "Params.sporttype" "Run" }}
-	    {{ if (time .Params.startdate).After (time "2022-01-01 00:00:00") }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $runs = add $runs 1 }}
 	    {{ $avgHeartrate = add $avgHeartrate .Params.averageheartrate }}
 	    {{ end }}
 	    {{ end }}
+	    {{ if gt $runs 0 }}
 	    {{ $avgHeartrate = div $avgHeartrate $runs }}
+	    {{ end }}
 	    <p class="title">{{ math.Round $avgHeartrate }}</p>
 	  </div>
 	</div>
@@ -52,8 +54,8 @@
 	  <div>
 	    <p class="heading">{{ i18n "max_heartrate" . }}</p>
 	    {{ $maxHeartrate := 0 }}
-	    {{ range where .Pages "Params.sporttype" "Run" }}
-	    {{ if (time .Params.startdate).After (time "2022-01-01 00:00:00") }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $maxHeartrate = math.Max $maxHeartrate .Params.maxheartrate }}
 	    {{ end }}
 	    {{ end }}
@@ -69,8 +71,10 @@
 	    <div>
 	      <p class="heading">{{ i18n "duration" . }}</p>
 	      {{ $totalTime := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Walk" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $totalTime = add $totalTime .Params.elapsedtime }}
+	      {{ end }}
 	      {{ end }}
 	      <p class="title">{{ $totalTime | duration "second" }}</p>
 	    </div>
@@ -79,8 +83,10 @@
 	    <div>
 	      <p class="heading">{{ i18n "distance" . }}</p>
 	      {{ $totalDistance := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Walk" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $totalDistance = add $totalDistance .Params.distance }}
+	      {{ end }}
 	      {{ end }}
 	      {{ $totalDistance := div $totalDistance 1000 }}
 	      <p class="title">{{ math.Round $totalDistance }} km</p>
@@ -91,11 +97,15 @@
 	      <p class="heading">{{ i18n "average_heartrate" . }}</p>
 	      {{ $avgHeartrate := 0 }}
 	      {{ $runs := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Walk" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $runs = add $runs 1 }}
 	      {{ $avgHeartrate = add $avgHeartrate .Params.averageheartrate }}
 	      {{ end }}
+	      {{ end }}
+	      {{ if gt $runs 0 }}
 	      {{ $avgHeartrate = div $avgHeartrate $runs }}
+	      {{ end }}
 	      <p class="title">{{ math.Round $avgHeartrate }}</p>
 	    </div>
 	  </div>
@@ -103,8 +113,10 @@
 	    <div>
 	      <p class="heading">{{ i18n "max_heartrate" . }}</p>
 	      {{ $maxHeartrate := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Walk" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $maxHeartrate = math.Max $maxHeartrate .Params.maxheartrate }}
+	      {{ end }}
 	      {{ end }}
 	      <p class="title">{{ $maxHeartrate }}</p>
 	    </div>
@@ -119,8 +131,10 @@
 	    <div>
 	      <p class="heading">{{ i18n "duration" . }}</p>
 	      {{ $totalTime := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Workout" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Workout" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $totalTime = add $totalTime .Params.elapsedtime }}
+	      {{ end }}
 	      {{ end }}
 	      <p class="title">{{ $totalTime | duration "second" }}</p>
 	    </div>
@@ -130,11 +144,15 @@
 	      <p class="heading">{{ i18n "average_heartrate" . }}</p>
 	      {{ $avgHeartrate := 0 }}
 	      {{ $runs := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Workout" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Workout" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $runs = add $runs 1 }}
 	      {{ $avgHeartrate = add $avgHeartrate .Params.averageheartrate }}
 	      {{ end }}
+	      {{ end }}
+	      {{ if gt $runs 0 }}
 	      {{ $avgHeartrate = div $avgHeartrate $runs }}
+	      {{ end }}
 	      <p class="title">{{ math.Round $avgHeartrate }}</p>
 	    </div>
 	  </div>
@@ -142,8 +160,10 @@
 	    <div>
 	      <p class="heading">{{ i18n "max_heartrate" . }}</p>
 	      {{ $maxHeartrate := 0 }}
-	      {{ range where .Pages "Params.sporttype" "Workout" }}
+	      {{ range where .Site.AllPages "Params.sporttype" "Workout" }}
+	      {{ if (time .Params.startdate).After (time $startOfYear) }}
 	      {{ $maxHeartrate = math.Max $maxHeartrate .Params.maxheartrate }}
+	      {{ end }}
 	      {{ end }}
 	      <p class="title">{{ $maxHeartrate }}</p>
 	    </div>
@@ -152,4 +172,3 @@
       </div>
     </div>
   </div>
-{{ end }}
