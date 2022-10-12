@@ -61,7 +61,7 @@ twitter                  = true
         languageCode     = "fi"
         contentDir       = "content/"
         weight           = 0
-        title            = "Introduction"
+        title            = "Ernesti Koskelan urheilublogi"
         [languages.fi.params]
-            description  = "Ernesti Koskelan urheilublogi"   # Max 160 characters show in search results
-            # footerText   = ""                      # Text to override default footer text (markdown allowed)
+            description  = "Ernesti Koskelan urheilublogi"
+            footerText   = "”Jokainen syy, joka estää kuntoilun, on tekosyy.” -Urho Kekkonen"
