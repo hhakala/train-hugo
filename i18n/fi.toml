@@ -24,7 +24,7 @@
 [footer_text]
     other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) theme for [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://victoria.dev) by open source contributors."
 [index_activity_latestActivity]
-    other = "Viimeisin juoksulenkki"
+    other = "Viimeisin juoksu"
 [index_activity_allActivities]
     other = "Kaikki juoksut"
 [duration]
