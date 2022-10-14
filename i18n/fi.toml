@@ -36,8 +36,32 @@
 [max_heartrate]
     other = "Maksimisyke"
 [summary_run]
-	other = "Juoksu"
+    other = "Juoksu"
 [summary_walk]
-	other = "Kävely"
+    other = "Kävely"
 [summary_workout]
-	other = "Liikkuvuus- ja voimaharjoitukset"
+    other = "Liikkuvuus- ja voimaharjoitukset"
+[January]
+    other = "tammikuu"
+[February]
+    other = "helmikuu"
+[March]
+    other = "maaliskuu"
+[April]
+    other = "huhtikuu"
+[May]
+    other = "toukokuu"
+[June]
+    other = "kesäkuu"
+[July]
+    other = "heinäkuu"
+[August]
+    other = "elokuu"
+[September]
+    other = "syyskuu"
+[October]
+    other = "lokakuu"
+[November]
+    other = "marraskuu"
+[December]
+    other = "joulukuu"
