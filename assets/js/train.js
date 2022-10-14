@@ -1,6 +1,9 @@
 $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+  $('#myTable').DataTable({
+    language: { url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/fi.json' },
+    order: [ 0, 'desc' ],
+  })
+});
 
 var startLocation = $("p#map-start").text();
 var map = L.map('map').setView([61.40295, 23.63736], 10);
