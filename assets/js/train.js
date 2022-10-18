@@ -1,80 +1,119 @@
 $(document).ready( function () {
+  initDataTable();
+  initMap();
+  initActivityChart();
+  initSummaryPie();
+});
+
+function initSummaryPie(){
+  if ( $( "#totalsPie" ).length ) {
+    var summaryData = {
+      labels: [
+	'Juoksu',
+	'Kävely',
+	'Liikkuvuus',
+	'Voima'
+      ],
+      datasets: [{
+	label: 'Vuosi 2022',
+	data: [totalRun, totalWalk, totalWorkout, totalStrength],
+	backgroundColor: [
+	  'rgb(255, 99, 132)',
+	  'rgb(54, 162, 235)',
+	  'rgb(255, 205, 86)',
+	  'rgb(234, 145, 86)'
+	],
+	hoverOffset: 4
+      }],
+      options: {
+	responsive: true,
+	maintainAspectRatio: false,
+	layout: {
+	  padding: {
+	    top: 150,
+	    bottom: 200
+	  }
+	}
+      }
+    };
+    var summaryConfig = {
+      type: 'pie',
+      data: summaryData,
+    };
+
+    const summaryChart = new Chart(
+      document.getElementById('totalsPie'),
+      summaryConfig
+    );
+    summaryChart.canvas.parentNode.style.height = '500px';
+    summaryChart.canvas.parentNode.style.width = '500px';
+  }
+}
+
+function initDataTable(){
   $('#myTable').DataTable({
     language: { url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/fi.json' },
     order: [ 0, 'desc' ],
   })
-});
+}
 
-var startLocation = $("p#map-start").text();
-var map = L.map('map').setView([61.40295, 23.63736], 10);
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '© OpenStreetMap'
-}).addTo(map);
-var encoded = $("p#map-polyline").text();
-var polyline = L.Polyline.fromEncoded(encoded);
-polyline.addTo(map);
-map.fitBounds(polyline.getBounds());
-
-const decimation = {
-  enabled: true,
-  algorithm: 'lttb',
-};
-
-const actions = [
-  {
-    name: 'LTTB decimation (50 samples)',
-    handler(chart) {
-      chart.options.plugins.decimation.algorithm = 'lttb';
-      chart.options.plugins.decimation.enabled = true;
-      chart.options.plugins.decimation.samples = 50;
-      chart.update();
-    }
+function initMap(){
+  if ( $( "p#map-start" ).length ) {
+    var startLocation = $("p#map-start").text();
+    var map = L.map('map').setView([61.40295, 23.63736], 10);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+    var encoded = $("p#map-polyline").text();
+    var polyline = L.Polyline.fromEncoded(encoded);
+    polyline.addTo(map);
+    map.fitBounds(polyline.getBounds());
   }
-];
+}
 
-const data = {
-  labels: chartdata.heartrate[0].data,
-  datasets: [{
-    label: 'Syke',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    data: chartdata.heartrate[1].data,
-    yAxisID: 'y',
-  },{
-    label: 'Korkeus',
-    backgroundColor: 'rgb(201, 203, 207)',
-    borderColor: 'rgb(201, 203, 207)',
-    data: chartdata.altitude[1].data,
-    yAxisID: 'y1',
-  }]
-};
+function initActivityChart(){
+  if ( $( "#myChart" ).length ) {
 
-const config = {
-  type: 'line',
-  data: data,
-  options: {
-    scales: {
-      y: {
-	type: 'linear',
-	display: true,
-	position: 'left',
-	autoSkip: true,
-      },
-      y1: {
-	type: 'linear',
-	display: true,
-	position: 'right',
-	autoSkip: true,
+    var activityData = {
+      labels: chartdata.heartrate[0].data,
+      datasets: [{
+	label: 'Syke',
+	backgroundColor: 'rgb(255, 99, 132)',
+	borderColor: 'rgb(255, 99, 132)',
+	data: chartdata.heartrate[1].data,
+	yAxisID: 'y',
+      },{
+	label: 'Korkeus',
+	backgroundColor: 'rgb(201, 203, 207)',
+	borderColor: 'rgb(201, 203, 207)',
+	data: chartdata.altitude[1].data,
+	yAxisID: 'y1',
+      }]
+    };
+
+    var activityConfig = {
+      type: 'line',
+      data: activityData,
+      options: {
+	scales: {
+	  y: {
+	    type: 'linear',
+	    display: true,
+	    position: 'left',
+	  },
+	  y1: {
+	    type: 'linear',
+	    display: true,
+	    position: 'right',
+	  }
+	},
       }
-    },
-    plugins: {
-      decimation: decimation,
-    },
-  }
-};
+    };
 
-const myChart = new Chart(
-  document.getElementById('myChart'),
-  config
-);
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      activityConfig
+    );
+  }
+}
