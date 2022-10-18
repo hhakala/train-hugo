@@ -1,6 +1,6 @@
 <!-- Begin Nav bar -->
 <div class="container">
-    <hr>
+    <hr/>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         {{ $isHome := .Page.IsHome }}
         <a role="button" class="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false" >
@@ -8,7 +8,7 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
-        <div class="navbar-menu {{ if $isHome }}has-content-centered{{ end }}" id="navMenu">
+        <div class="navbar-menu has-content-centered" id="navMenu">
             <!-- look for custom menu and include it -->
             {{ if .Site.Menus.main }}
             {{ range .Site.Menus.main }}

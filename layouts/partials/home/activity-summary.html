@@ -2,7 +2,7 @@
   <!-- Begin activity summary container -->
   <div class="container">
     {{ $thisYear := now.Year }}
-    <h2 class="title is-2">Vuonna {{ $thisYear }}</h2>
+    <h2 class="title is-2 has-text-centered">Vuonna {{ $thisYear }}</h2>
     <div class="summary">
       {{ $startOfYear := printf "%d-01-01 00:00:00" $thisYear }}
       {{ $totalRunTime := 0 }}
