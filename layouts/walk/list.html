@@ -12,7 +12,7 @@
 	  <div>
 	    <p class="heading">{{ i18n "duration" . }}</p>
 	    {{ $totalTime := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $totalTime = add $totalTime .Params.elapsedtime }}
 	    {{ end }}
@@ -24,7 +24,7 @@
 	  <div>
 	    <p class="heading">{{ i18n "distance" . }}</p>
 	    {{ $totalDistance := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $totalDistance = add $totalDistance .Params.distance }}
 	    {{ end }}
@@ -38,7 +38,7 @@
 	    <p class="heading">{{ i18n "average_heartrate" . }}</p>
 	    {{ $avgHeartrate := 0 }}
 	    {{ $runs := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $runs = add $runs 1 }}
 	    {{ $avgHeartrate = add $avgHeartrate .Params.averageheartrate }}
@@ -54,7 +54,7 @@
 	  <div>
 	    <p class="heading">{{ i18n "max_heartrate" . }}</p>
 	    {{ $maxHeartrate := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $maxHeartrate = math.Max $maxHeartrate .Params.maxheartrate }}
 	    {{ end }}
@@ -66,7 +66,7 @@
 
       {{ if .Site.Params.home.showLatest | default true }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_run" . }}</h2>
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_walk" . }}</h2>
       {{ range first 1 .Pages.ByPublishDate.Reverse }}
       <div class="summary">
 	{{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
@@ -121,7 +121,7 @@
       {{ end }}
       {{ end }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_run" . }}</h2>
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_walk" . }}</h2>
       {{ partial "run/li.html" . }}
     </div>
     {{ end }}
