@@ -1,0 +1,22 @@
+<div class="table-container">
+  <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="myTable">
+    <thead>
+      <tr>
+	<th>Päiväys</th>
+	<th>Nimi</th>
+	<th>Syke keskiarvo</th>
+	<th>Syke maksimi</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range .Pages.ByPublishDate.Reverse }}
+      <tr>
+	<td data-order="{{ .Date.Unix }}">{{.Date.Day}}. {{i18n .Date.Month}} {{.Date.Year}}</td>
+	<td><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></td>
+	<td>{{ .Params.averageheartrate }}</td>
+	<td>{{ .Params.maxheartrate }}</td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+</div>

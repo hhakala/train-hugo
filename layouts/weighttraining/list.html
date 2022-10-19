@@ -12,7 +12,7 @@
 	  <div>
 	    <p class="heading">{{ i18n "duration" . }}</p>
 	    {{ $totalTime := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "WeightTraining" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $totalTime = add $totalTime .Params.elapsedtime }}
 	    {{ end }}
@@ -22,23 +22,10 @@
 	</div>
 	<div class="level-item has-text-centered">
 	  <div>
-	    <p class="heading">{{ i18n "distance" . }}</p>
-	    {{ $totalDistance := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
-	    {{ if (time .Params.startdate).After (time $startOfYear) }}
-	    {{ $totalDistance = add $totalDistance .Params.distance }}
-	    {{ end }}
-	    {{ end }}
-	    {{ $totalDistance := div $totalDistance 1000 }}
-	    <p class="title">{{ math.Round $totalDistance }} km</p>
-	  </div>
-	</div>
-	<div class="level-item has-text-centered">
-	  <div>
 	    <p class="heading">{{ i18n "average_heartrate" . }}</p>
 	    {{ $avgHeartrate := 0 }}
 	    {{ $runs := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "WeightTraining" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $runs = add $runs 1 }}
 	    {{ $avgHeartrate = add $avgHeartrate .Params.averageheartrate }}
@@ -54,7 +41,7 @@
 	  <div>
 	    <p class="heading">{{ i18n "max_heartrate" . }}</p>
 	    {{ $maxHeartrate := 0 }}
-	    {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+	    {{ range where .Site.AllPages "Params.sporttype" "WeightTraining" }}
 	    {{ if (time .Params.startdate).After (time $startOfYear) }}
 	    {{ $maxHeartrate = math.Max $maxHeartrate .Params.maxheartrate }}
 	    {{ end }}
@@ -66,7 +53,7 @@
 
       {{ if .Site.Params.home.showLatest | default true }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_walk" . }}</h2>
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_weighttraining" . }}</h2>
       {{ range first 1 .Pages.ByPublishDate.Reverse }}
       <div class="summary">
 	{{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
@@ -80,14 +67,6 @@
 	    <div>
 	      <p class="heading">{{ i18n "duration" . }}</p>
 	      <p class="title">{{ .Params.movingtime | duration "second" }}</p>
-	    </div>
-	  </div>
-	  <div class="level-item has-text-centered">
-	    <div>
-	      <p class="heading">{{ i18n "distance" . }}</p>
-	      {{ $distance := 0 }}
-	      {{ $distance := div .Params.distance 1000 }}
-	      <p class="title">{{ math.Round $distance }} km</p>
 	    </div>
 	  </div>
 	  <div class="level-item has-text-centered">
@@ -112,16 +91,16 @@
 	{{ end }}
 	<script>
 	  {{ $idString := (printf "%v" .Params.id ) }}
-	  const chartdata = {{ index $.Site.Data $idString }};
+	  const chartdata = {{ index $.Site.Data $idString "heartrate" }};
 	</script>
 	<div>
-	  <canvas id="chart-heartrate-elevation"></canvas>
+	  <canvas id="chart-heartrate"></canvas>
 	</div>
       </div>
       {{ end }}
       {{ end }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_walk" . }}</h2>
-      {{ partial "run/li.html" . }}
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_weighttraining" . }}</h2>
+      {{ partial "weighttraining/li.html" . }}
     </div>
     {{ end }}

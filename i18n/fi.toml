@@ -23,10 +23,6 @@
     other = "Share this"
 [footer_text]
     other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) theme for [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://victoria.dev) by open source contributors."
-[index_activity_latestActivity]
-    other = "Viimeisin juoksu"
-[index_activity_allActivities]
-    other = "Kaikki juoksut"
 [duration]
     other = "Kesto"
 [distance]
@@ -65,3 +61,23 @@
     other = "marraskuu"
 [December]
     other = "joulukuu"
+[index_activity_latest_run]
+    other = "Viimeisin juoksu"
+[index_activity_all_run]
+    other = "Kaikki juoksut"
+[index_activity_latest_walk]
+    other = "Viimeisin kävely"
+[index_activity_all_walk]
+    other = "Kaikki kävelyt"
+[index_activity_latest_workout]
+    other = "Viimeisin liikkuvuusharjoitus"
+[index_activity_all_workout]
+    other = "Kaikki liikkuvuusharjoitukset"
+[index_activity_latest_weighttraining]
+    other = "Viimeisin voimaharjoitus"
+[index_activity_all_weighttraining]
+    other = "Kaikki voimaharjoitukset"
+[index_activity_latest_yoga]
+    other = "Viimeisin yoga"
+[index_activity_all_yoga]
+    other = "Kaikki yogaharjoitukset"

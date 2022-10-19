@@ -12,16 +12,18 @@ function initSummaryPie(){
 	'Juoksu',
 	'Kävely',
 	'Liikkuvuus',
-	'Voima'
+	'Voima',
+	'Yoga'
       ],
       datasets: [{
 	label: 'Vuosi 2022',
-	data: [totalRun, totalWalk, totalWorkout, totalStrength],
+	data: [totalRun, totalWalk, totalWorkout, totalStrength, totalYoga],
 	backgroundColor: [
 	  'rgb(255, 99, 132)',
 	  'rgb(54, 162, 235)',
 	  'rgb(255, 205, 86)',
-	  'rgb(234, 145, 86)'
+	  'rgb(234, 145, 86)',
+	  'rgb(123, 35, 86)'
 	],
 	hoverOffset: 4
       }],
@@ -40,23 +42,23 @@ function initSummaryPie(){
       type: 'pie',
       data: summaryData,
       options: {
-        plugins: {
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                let label = context.label || '';
+	plugins: {
+	  tooltip: {
+	    callbacks: {
+	      label: function(context) {
+		let label = context.label || '';
 
-                if (label) {
-                  label += ': ';
-                }
-                if (context.parsed.y !== null) {
-                  label += secondsToDhms(context.parsed)
-                }
-                return label;
-              }
-            }
-          }
-        }
+		if (label) {
+		  label += ': ';
+		}
+		if (context.parsed.y !== null) {
+		  label += secondsToDhms(context.parsed)
+		}
+		return label;
+	      }
+	    }
+	  }
+	}
       }
     };
 
@@ -92,8 +94,37 @@ function initMap(){
 }
 
 function initActivityChart(){
-  if ( $( "#myChart" ).length ) {
+  if ( $( "#chart-heartrate" ).length ) {
+    var activityData = {
+      labels: chartdata[1].data,
+      datasets: [{
+	label: 'Syke',
+	backgroundColor: 'rgb(255, 99, 132)',
+	borderColor: 'rgb(255, 99, 132)',
+	data: chartdata[0].data,
+	yAxisID: 'y',
+      }]
+    };
+    var activityConfig = {
+      type: 'line',
+      data: activityData,
+      options: {
+	scales: {
+	  y: {
+	    type: 'linear',
+	    display: true,
+	    position: 'left',
+	  }
+	}
+      }
+    };
+    const myChart = new Chart(
+      document.getElementById('chart-heartrate'),
+      activityConfig
+    );
 
+  }
+  else if ( $( "#chart-heartrate-elevation" ).length ) {
     var activityData = {
       labels: chartdata.heartrate[0].data,
       datasets: [{
@@ -131,7 +162,7 @@ function initActivityChart(){
     };
 
     const myChart = new Chart(
-      document.getElementById('myChart'),
+      document.getElementById('chart-heartrate-elevation'),
       activityConfig
     );
   }

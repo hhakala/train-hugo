@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="container markdown top-pad">
+<div class="container top-pad">
   <nav class="level">
     <div class="level-item has-text-centered">
       <div>
@@ -25,8 +25,7 @@
 	<p class="title">{{ .Params.maxheartrate }}</p>
       </div>
     </div>
-  </nav>	
-  {{ end }}
+  </nav>
   {{ if .Params.startlatlng }}
   <div id="map"></div>
   <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>
@@ -37,7 +36,7 @@
     const chartdata = {{ index $.Site.Data $idString }};
   </script>
   <div>
-    <canvas id="myChart"></canvas>
+    <canvas id="chart-heartrate-elevation"></canvas>
   </div>
 </div>
 <!-- End post content -->

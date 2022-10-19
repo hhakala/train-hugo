@@ -51,6 +51,10 @@ twitter                  = true
     name    = "Voima"
     url     = "/weighttraining/"
     weight  = 5
+[[menu.main]]
+    name    = "Yoga"
+    url     = "/yoga/"
+    weight  = 6
 
 
 

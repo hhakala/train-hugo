@@ -91,16 +91,16 @@
 	{{ end }}
 	<script>
 	  {{ $idString := (printf "%v" .Params.id ) }}
-	  const chartdata = {{ index $.Site.Data $idString }};
+	  const chartdata = {{ index $.Site.Data $idString "heartrate" }};
 	</script>
 	<div>
-	  <canvas id="myChart"></canvas>
+	  <canvas id="chart-heartrate"></canvas>
 	</div>
       </div>
       {{ end }}
       {{ end }}
       <hr/>
       <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_workout" . }}</h2>
-      {{ partial "run/li.html" . }}
+      {{ partial "workout/li.html" . }}
     </div>
     {{ end }}
