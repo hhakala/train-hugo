@@ -15,6 +15,6 @@
 <!-- Custom JavaScript -->
 {{ range .Site.Params.customJS -}}
     {{ $script := resources.Get . | minify }}
-    <script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous"></script>
+    <script src="{{ $script.Permalink }}" integrity="{{ $scripts.Data.Integrity }}" crossorigin="anonymous"></script>
 {{- end }}
 
