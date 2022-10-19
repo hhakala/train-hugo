@@ -14,6 +14,6 @@
 <!-- Custom JavaScript -->
 {{ range .Site.Params.customJS -}}
     {{ $script := resources.Get . | minify }}
-    <script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}"></script>
+    <script src="{{ $script.Permalink }}"></script>
 {{- end }}
 
