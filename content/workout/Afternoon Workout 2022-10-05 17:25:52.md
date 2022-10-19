@@ -8,7 +8,6 @@ distance: 0
 movingtime: 2024
 elapsedtime: 2024
 totalelevationgain: 0
-type: Workout
 sporttype: Workout
 id: 7915659389
 startdate: 2022-10-05T14:25:52Z

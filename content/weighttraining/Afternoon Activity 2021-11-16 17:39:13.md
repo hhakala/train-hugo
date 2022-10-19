@@ -8,7 +8,6 @@ distance: 0
 movingtime: 1670
 elapsedtime: 1670
 totalelevationgain: 0
-type: WeightTraining
 sporttype: WeightTraining
 id: 6266064592
 startdate: 2021-11-16T15:39:13Z

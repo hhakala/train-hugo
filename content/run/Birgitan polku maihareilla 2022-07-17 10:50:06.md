@@ -8,7 +8,6 @@ distance: 15460.6
 movingtime: 8066
 elapsedtime: 9007
 totalelevationgain: 269.4
-type: Run
 sporttype: Run
 id: 7482829521
 startdate: 2022-07-17T07:50:06Z

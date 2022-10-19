@@ -8,7 +8,6 @@ distance: 0
 movingtime: 2604
 elapsedtime: 2604
 totalelevationgain: 0
-type: Yoga
 sporttype: Yoga
 id: 7092915732
 startdate: 2022-05-05T14:23:01Z
