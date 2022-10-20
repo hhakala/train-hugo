@@ -1,4 +1,4 @@
-baseURL = 'https://ernestikoskela.pages.dev/'
+baseURL = 'https://train-hugo.pages.dev'
 languageCode = 'fi'
 defaultContentLanguage = 'fi'
 title = 'Ernesti Koskela'
