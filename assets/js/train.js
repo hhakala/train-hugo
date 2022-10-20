@@ -79,6 +79,7 @@ function initSummaryPie(){
 function initDataTable(){
   $('#myTable').DataTable({
     language: { url: '//cdn.datatables.net/plug-ins/1.12.1/i18n/fi.json' },
+    responsive: true,
     order: [ 0, 'desc' ],
   })
 }
