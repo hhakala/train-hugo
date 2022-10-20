@@ -52,7 +52,7 @@ twitter                  = true
     url     = "/weighttraining/"
     weight  = 5
 [[menu.main]]
-    name    = "Yoga"
+    name    = "Jooga"
     url     = "/yoga/"
     weight  = 6
 
