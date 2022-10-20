@@ -1,5 +1,5 @@
 ---
-title: "Ernesti Koskelan urheilublogi"
+title: "Heikki Hakalan urheilublogi"
 draft: false
 weight: 0
 ---

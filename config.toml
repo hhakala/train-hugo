@@ -1,7 +1,7 @@
-baseURL = 'https://train-hugo.pages.dev'
+baseURL = 'https://blog.heikkihakala.fi'
 languageCode = 'fi'
 defaultContentLanguage = 'fi'
-title = 'Ernesti Koskela'
+title = 'Heikki Hakala'
 theme = 'introduction'
 
 [params]
@@ -15,11 +15,11 @@ theme = 'introduction'
 # Icon pack "fab" includes social network icons, see: https://fontawesome.com/icons?d=gallery&s=brands&m=free
 # Icon pack "fas" includes solid style icons, see: https://fontawesome.com/icons?d=gallery&s=solid&m=free
 [[params.social]]
-url   = "https://twitter.com/ernestikoskela"
+url   = "https://twitter.com/heikkihakalafi"
 icon  = "twitter" # icon name without the 'fa-'
 icon_pack = "fab"
 [[params.social]]
-url   = "https://github.com/ernestikoskela"
+url   = "https://github.com/hhakala"
 icon  = "github" # icon name without the 'fa-'
 icon_pack = "fab"
 [[params.social]]
@@ -65,7 +65,7 @@ twitter                  = true
         languageCode     = "fi"
         contentDir       = "content/"
         weight           = 0
-        title            = "Ernesti Koskelan urheilublogi"
+        title            = "Heikki Hakalan urheilublogi"
         [languages.fi.params]
-            description  = "Ernesti Koskelan urheilublogi"
+            description  = "Heikki Hakalan urheilublogi"
             footerText   = "”Jokainen syy, joka estää kuntoilun, on tekosyy.” -Urho Kekkonen"
