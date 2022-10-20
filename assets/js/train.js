@@ -131,7 +131,7 @@ function initActivityChart(){
     );
     if ($(window).width() > 500 && $(window).height() > 500) {
       chartHeartrate.canvas.parentNode.style.height = '500px';
-      chartHeartrate.canvas.parentNode.style.width = '500px';
+      chartHeartrate.canvas.parentNode.style.width = '1000px';
     } else{
       chartHeartrate.canvas.parentNode.style.height = '250px';
       chartHeartrate.canvas.parentNode.style.width = '250px';
@@ -183,7 +183,7 @@ function initActivityChart(){
     );
     if ($(window).width() > 500 && $(window).height() > 500) {
       chartHeartrateElevation.canvas.parentNode.style.height = '500px';
-      chartHeartrateElevation.canvas.parentNode.style.width = '500px';
+      chartHeartrateElevation.canvas.parentNode.style.width = '1000px';
     } else{
       chartHeartrateElevation.canvas.parentNode.style.height = '250px';
       chartHeartrateElevation.canvas.parentNode.style.width = '250px';
