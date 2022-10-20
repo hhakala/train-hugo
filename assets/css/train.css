@@ -23,9 +23,12 @@ dd {
     margin: 0px;
 }
 
-nav.level {
-    display:flex;
+@media screen and (min-width: 960px) {
+    nav.level {
+	display: flex;
+    }
 }
+
 
 div.level-item {
     align-items: center;

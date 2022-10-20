@@ -66,8 +66,13 @@ function initSummaryPie(){
       document.getElementById('totalsPie'),
       summaryConfig
     );
-    summaryChart.canvas.parentNode.style.height = '500px';
-    summaryChart.canvas.parentNode.style.width = '500px';
+    if ($(window).width() > 500 && $(window).height() > 500) {
+      summaryChart.canvas.parentNode.style.height = '500px';
+      summaryChart.canvas.parentNode.style.width = '500px';
+    } else{
+      summaryChart.canvas.parentNode.style.height = '250px';
+      summaryChart.canvas.parentNode.style.width = '250px';
+    }
   }
 }
 
@@ -109,6 +114,8 @@ function initActivityChart(){
       type: 'line',
       data: activityData,
       options: {
+	responsive: true,
+	maintainAspectRatio: false,
 	scales: {
 	  y: {
 	    type: 'linear',
@@ -118,10 +125,17 @@ function initActivityChart(){
 	}
       }
     };
-    const myChart = new Chart(
+    const chartHeartrate = new Chart(
       document.getElementById('chart-heartrate'),
       activityConfig
     );
+    if ($(window).width() > 500 && $(window).height() > 500) {
+      chartHeartrate.canvas.parentNode.style.height = '500px';
+      chartHeartrate.canvas.parentNode.style.width = '500px';
+    } else{
+      chartHeartrate.canvas.parentNode.style.height = '250px';
+      chartHeartrate.canvas.parentNode.style.width = '250px';
+    }
 
   }
   else if ( $( "#chart-heartrate-elevation" ).length ) {
@@ -146,6 +160,8 @@ function initActivityChart(){
       type: 'line',
       data: activityData,
       options: {
+	responsive: true,
+	maintainAspectRatio: false,
 	scales: {
 	  y: {
 	    type: 'linear',
@@ -161,10 +177,17 @@ function initActivityChart(){
       }
     };
 
-    const myChart = new Chart(
+    const chartHeartrateElevation = new Chart(
       document.getElementById('chart-heartrate-elevation'),
       activityConfig
     );
+    if ($(window).width() > 500 && $(window).height() > 500) {
+      chartHeartrateElevation.canvas.parentNode.style.height = '500px';
+      chartHeartrateElevation.canvas.parentNode.style.width = '500px';
+    } else{
+      chartHeartrateElevation.canvas.parentNode.style.height = '250px';
+      chartHeartrateElevation.canvas.parentNode.style.width = '250px';
+    }
   }
 }
 
