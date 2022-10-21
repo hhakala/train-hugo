@@ -13,7 +13,7 @@ function initSummaryPie(){
 	'Kävely',
 	'Liikkuvuus',
 	'Voima',
-	'Yoga'
+	'Jooga'
       ],
       datasets: [{
 	label: 'Vuosi 2022',
