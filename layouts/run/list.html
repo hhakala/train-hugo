@@ -8,67 +8,101 @@
   {{ $yearBefore := sub $lastYear 31556926 }}
   {{ $yearBeforeStart := sub $yearBefore 31556926 }}  
   {{ $thisYear := now.Year }}
-  <h2 class="title is-2">Yhteensä vuonna {{ $thisYear }}</h2>
+  <span><h2 class="title is-2">Yhteensä edeltävän 12kk aikana </h2>({{ $lastYear | time.Format "02.01.2006" }} - {{ now | time.Format "02.01.2006" }})</span>
   <div class="summary">
     {{ $startOfYear := printf "%d-01-01 00:00:00" $thisYear }}
     <nav class="level">
       <div class="level-item has-text-centered">
 	<div>
 	  <p class="heading">{{ i18n "duration" . }}</p>
-	  {{ $totalLastYear := 0 }}
-	  {{ $totalYearBefore := 0 }}
+	  {{ $totalTimeLastYear := 0 }}
+	  {{ $totalTimeYearBefore := 0 }}
+	  
+	  {{ $totalDistanceLastYear := 0 }}
+	  {{ $totalDistanceYearBefore := 0 }}
+	  
+	  {{ $avgHeartrateLastYear := 0 }}
+	  {{ $runsLastYear := 0 }}
+	  {{ $avgHeartrateYearBefore := 0 }}
+	  {{ $runsYearBefore := 0 }}
+
+	  {{ $maxHeartrateLastYear := 0 }}
+	  {{ $maxHeartrateYearBefore := 0 }}
 	  
 	  {{ range where .Site.AllPages "Params.sporttype" "Run" }}
-	  {{ if (time .Params.startdate).After (time $lastYear) }}
-	  {{ $totalLastYear = add $totalLastYear .Params.elapsedtime }}
-	  {{ else if (time .Params.startdate).After (time $yearBefore) }}
-	  {{ $totalYearBefore = add $totalYearBefore .Params.elapsedtime }}
+	      {{ if (time .Params.startdate).After (time $lastYear) }}
+	          {{ $totalTimeLastYear = add $totalTimeLastYear .Params.elapsedtime }}
+	          {{ $totalDistanceLastYear = add $totalDistanceLastYear .Params.distance }}
+	          {{ $runsLastYear = add $runsLastYear 1 }}
+	          {{ $avgHeartrateLastYear = add $avgHeartrateLastYear .Params.averageheartrate }}
+	  	  {{ $maxHeartrateLastYear = math.Max $maxHeartrateLastYear .Params.maxheartrate }}
+	      {{ else if (time .Params.startdate).After (time $yearBefore) }}
+	          {{ $totalTimeYearBefore = add $totalTimeYearBefore .Params.elapsedtime }}
+	          {{ $totalDistanceYearBefore = add $totalDistanceYearBefore .Params.distance }}
+	          {{ $runsYearBefore = add $runsYearBefore 1 }}
+	          {{ $avgHeartrateYearBefore = add $avgHeartrateYearBefore .Params.averageheartrate }}
+	  	  {{ $maxHeartrateYearBefore = math.Max $maxHeartrateYearBefore .Params.maxheartrate }}
+      	      {{ end }}
 	  {{ end }}
-	  {{ end }}
-	  <p class="title">{{ $totalLastYear | duration "second" }}</p>
-	  <p class="title">{{ $totalYearBefore | duration "second" }}</p>	  
+	  
+	  {{ $totalTimeYearBefore = div $totalTimeYearBefore 1.0 }}
+	  {{ $diffPercent := div $totalTimeLastYear $totalTimeYearBefore }}
+	  {{ $diffPercent := mul $diffPercent 100 }}
+	  <p class="title">{{ $totalTimeLastYear | duration "second" }}
+	    <span class="tag is-{{ if gt $totalTimeLastYear $totalTimeYearBefore }}success{{ else }}danger{{ end }} is-light">
+	      <i style="padding-right:3px" class="fa fa-arrow-up" aria-hidden="true"></i>
+	      {{ math.Round $diffPercent }}%
+	    </span>
+	  </p>
 	</div>
       </div>
       <div class="level-item has-text-centered">
 	<div>
 	  <p class="heading">{{ i18n "distance" . }}</p>
-	  {{ $totalDistance := 0 }}
-	  {{ range where .Site.AllPages "Params.sporttype" "Run" }}
-	  {{ if (time .Params.startdate).After (time $startOfYear) }}
-	  {{ $totalDistance = add $totalDistance .Params.distance }}
-	  {{ end }}
-	  {{ end }}
-	  {{ $totalDistance := div $totalDistance 1000 }}
-	  <p class="title">{{ math.Round $totalDistance }} km</p>
+	  {{ $totalDistanceYearBefore = div $totalDistanceYearBefore 1.0 }}
+	  {{ $diffPercent := div $totalDistanceLastYear $totalDistanceYearBefore }}
+	  {{ $diffPercent := mul $diffPercent 100 }}
+	  {{ $totalDistanceLastYearKm := div $totalDistanceLastYear 1000 }}
+	    <p class="title">{{ math.Round $totalDistanceLastYearKm }} km
+	    <span class="tag is-{{ if gt $totalDistanceLastYear $totalDistanceYearBefore }}success{{ else }}danger{{ end }} is-light">
+	      <i style="padding-right:3px" class="fa fa-arrow-up" aria-hidden="true"></i>
+	      {{ math.Round $diffPercent }}%
+	    </span>
+	  </p>
 	</div>
       </div>
       <div class="level-item has-text-centered">
 	<div>
 	  <p class="heading">{{ i18n "average_heartrate" . }}</p>
-	  {{ $avgHeartrate := 0 }}
-	  {{ $runs := 0 }}
-	  {{ range where .Site.AllPages "Params.sporttype" "Run" }}
-	  {{ if (time .Params.startdate).After (time $startOfYear) }}
-	  {{ $runs = add $runs 1 }}
-	  {{ $avgHeartrate = add $avgHeartrate .Params.averageheartrate }}
+	  {{ if gt $runsLastYear 0 }}
+	  {{ $avgHeartrateLastYear = div $avgHeartrateLastYear $runsLastYear }}
 	  {{ end }}
+	  {{ if gt $runsYearBefore 0 }}
+	  {{ $avgHeartrateYearBefore = div $avgHeartrateYearBefore $runsYearBefore }}
 	  {{ end }}
-	  {{ if gt $runs 0 }}
-	  {{ $avgHeartrate = div $avgHeartrate $runs }}
-	  {{ end }}
-	  <p class="title">{{ math.Round $avgHeartrate }}</p>
+	  <p class="title">{{ math.Round $avgHeartrateLastYear }}
+	    <span class="tag is-{{ if gt $avgHeartrateYearBefore $avgHeartrateLastYear }}success{{ else }}danger{{ end }} is-light">
+	      <i style="padding-right:3px" class="fa fa-arrow-{{ if gt $avgHeartrateLastYear $avgHeartrateYearBefore }}up{{ else }}down{{ end }}" aria-hidden="true"></i>
+	      {{ $avgHeartrateDiff := sub $avgHeartrateLastYear $avgHeartrateYearBefore }}
+	      {{ $avgHeartrateDiff = mul $avgHeartrateDiff 10 }}
+	      {{ $avgHeartrateDiff = math.Round $avgHeartrateDiff }}
+	      {{ div $avgHeartrateDiff 10 }}
+	    </span>
+	  </p>
 	</div>
       </div>
       <div class="level-item has-text-centered">
 	<div>
 	  <p class="heading">{{ i18n "max_heartrate" . }}</p>
-	  {{ $maxHeartrate := 0 }}
-	  {{ range where .Site.AllPages "Params.sporttype" "Run" }}
-	  {{ if (time .Params.startdate).After (time $startOfYear) }}
-	  {{ $maxHeartrate = math.Max $maxHeartrate .Params.maxheartrate }}
-	  {{ end }}
-	  {{ end }}
-	  <p class="title">{{ $maxHeartrate }}</p>
+	  <p class="title">{{ $maxHeartrateLastYear }}
+	    <span class="tag is-{{ if gt $maxHeartrateLastYear $maxHeartrateYearBefore }}success{{ else }}danger{{ end }} is-light">
+	      <i style="padding-right:3px" class="fa fa-arrow-{{ if gt $maxHeartrateLastYear $maxHeartrateYearBefore }}up{{ else }}down{{ end }}" aria-hidden="true"></i>
+	      {{ $maxHeartrateDiff := sub $maxHeartrateLastYear $maxHeartrateYearBefore }}
+	      {{ $maxHeartrateDiff = mul $maxHeartrateDiff 10 }}
+	      {{ $maxHeartrateDiff = math.Round $maxHeartrateDiff }}
+	      {{ div $maxHeartrateDiff 10 }}
+	    </span>
+	  </p>
 	</div>
       </div>
     </nav>
