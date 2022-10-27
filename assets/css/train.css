@@ -39,3 +39,33 @@ div.level-item {
     justify-content: center;
     padding: 5px;
 }
+
+.tag:not(body) {
+	align-items: center;
+	background-color: #f5f5f5;
+	border-radius: .375em;
+	color: #4a4a4a;
+	display: inline-flex;
+	font-size: 1rem;
+	height: 2em;
+	justify-content: center;
+	line-height: 1.5;
+	padding-left: .75em;
+	padding-right: .75em;
+	white-space: nowrap;
+}
+
+.tag:not(body).is-success {
+	background-color: #48c78e;
+	color: #fff;
+}
+
+.tag:not(body).is-success.is-light {
+	background-color: #effaf5;
+	color: #257953;
+}
+
+.tag:not(body).is-danger.is-light {
+	background-color: #feecf0;
+	color: #cc0f35;
+}
