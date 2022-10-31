@@ -55,7 +55,10 @@ twitter                  = true
     name    = "Jooga"
     url     = "/yoga/"
     weight  = 6
-
+[[menu.main]]
+    name    = "Soutu"
+    url     = "/rowing/"
+    weight  = 7
 
 
 

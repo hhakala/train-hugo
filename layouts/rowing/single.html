@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="container top-pad">
+  <nav class="level">
+    <div class="level-item has-text-centered">
+      <div>
+	<p class="heading">{{ i18n "duration" . }}</p>
+	<p class="title">{{ .Params.movingtime | duration "second" }}</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+	<p class="heading">{{ i18n "average_heartrate" . }}</p>
+	<p class="title">{{ .Params.averageheartrate }}</p>
+      </div>
+    </div>
+    <div class="level-item has-text-centered">
+      <div>
+	<p class="heading">{{ i18n "max_heartrate" . }}</p>
+	<p class="title">{{ .Params.maxheartrate }}</p>
+      </div>
+    </div>
+  </nav>
+  {{ if .Params.startlatlng }}
+  <div id="map"></div>
+  <p id="map-polyline" style="display:none">{{ .Params.map.summarypolyline}}</p>
+  <p id="map-start" style="display:none">[{{ index .Params.startlatlng 0}}, {{ index .Params.startlatlng 1}}]</p>
+  {{ end }}
+  <script>
+    {{ $idString := (printf "%v" .Params.id ) }}
+    const chartdata = {{ index $.Site.Data $idString "heartrate" }};
+  </script>
+  <div>
+    <canvas id="chart-heartrate"></canvas>
+  </div>
+</div>
+<!-- End post content -->
+{{ partial "comments.html" . }}
+{{ end }}
