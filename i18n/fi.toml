@@ -85,3 +85,5 @@
     other = "Viimeisin soutu"
 [index_activity_all_rowing]
     other = "Kaikki soutuharjoitukset"
+[total_last_12_months]
+    other = "Yhteensä edeltävän 12kk aikana"
