@@ -26,7 +26,7 @@
 	  {{ $maxHeartrateLastYear := 0 }}
 	  {{ $maxHeartrateYearBefore := 0 }}
 	  
-	  {{ range where .Site.AllPages "Params.sporttype" "Yoga" }}
+	  {{ range where .Site.AllPages "Params.sporttype" "Rowing" }}
 	      {{ if (time .Params.startdate).After (time $lastYear) }}
 	          {{ $totalTimeLastYear = add $totalTimeLastYear .Params.elapsedtime }}
 	          {{ $runsLastYear = add $runsLastYear 1 }}
@@ -93,7 +93,7 @@
 
       {{ if .Site.Params.home.showLatest | default true }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_yoga" . }}</h2>
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_rowing" . }}</h2>
       {{ range first 1 .Pages.ByPublishDate.Reverse }}
       <div class="summary">
 	{{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}

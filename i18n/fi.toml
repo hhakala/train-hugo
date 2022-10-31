@@ -81,3 +81,7 @@
     other = "Viimeisin jooga"
 [index_activity_all_yoga]
     other = "Kaikki joogaharjoitukset"
+[index_activity_latest_rowing]
+    other = "Viimeisin soutu"
+[index_activity_all_rowing]
+    other = "Kaikki soutuharjoitukset"
