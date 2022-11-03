@@ -27,10 +27,10 @@
   {{ end }}
   <script>
     {{ $idString := (printf "%v" .Params.id ) }}
-    const chartdata = {{ index $.Site.Data $idString "heartrate" }};
+    const chartdata = {{ index $.Site.Data $idString }};
   </script>
   <div>
-    <canvas id="chart-heartrate"></canvas>
+    <canvas id="chart-heartrate-elevation"></canvas>
   </div>
 </div>
 <!-- End post content -->
