@@ -1,50 +1,46 @@
-<div class="section" id="{{ .Title | urlize }}">
-  <!-- Begin activity summary container -->
-  <div class="container">
-    {{ $thisYear := now.Year }}
-    <h2 class="title is-2 has-text-centered">Vuonna {{ $thisYear }}</h2>
-    <div class="summary">
-      {{ $startOfYear := printf "%d-01-01 00:00:00" $thisYear }}
-      {{ $totalRunTime := 0 }}
-      {{ range where .Site.AllPages "Params.sporttype" "Run" }}
-      {{ if (time .Params.startdate).After (time $startOfYear) }}
-      {{ $totalRunTime = add $totalRunTime .Params.elapsedtime }}
-      {{ end }}
-      {{ end }}
-      {{ $totalWalkTime := 0 }}
-      {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
-      {{ if (time .Params.startdate).After (time $startOfYear) }}
-      {{ $totalWalkTime = add $totalWalkTime .Params.elapsedtime }}
-      {{ end }}
-      {{ end }}
-      {{ $totalWorkoutTime := 0 }}
-      {{ range where .Site.AllPages "Params.sporttype" "Workout" }}
-      {{ if (time .Params.startdate).After (time $startOfYear) }}
-      {{ $totalWorkoutTime = add $totalWorkoutTime .Params.elapsedtime }}
-      {{ end }}
-      {{ end }}
-      {{ $totalStrengthTime := 0 }}
-      {{ range where .Site.AllPages "Params.sporttype" "WeightTraining" }}
-      {{ if (time .Params.startdate).After (time $startOfYear) }}
-      {{ $totalStrengthTime = add $totalStrengthTime .Params.elapsedtime }}
-      {{ end }}
-      {{ end }}
-      {{ $totalYogaTime := 0 }}
-      {{ range where .Site.AllPages "Params.sporttype" "Yoga" }}
-      {{ if (time .Params.startdate).After (time $startOfYear) }}
-      {{ $totalYogaTime = add $totalYogaTime .Params.elapsedtime }}
-      {{ end }}
-      {{ end }}
+{{ $thisYear := now.Year }}
+<h2 class="title is-2 has-text-centered">Vuonna {{ $thisYear }}</h2>
+<div class="summary">
+  {{ $startOfYear := printf "%d-01-01 00:00:00" $thisYear }}
+  {{ $totalRunTime := 0 }}
+  {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+  {{ if (time .Params.startdate).After (time $startOfYear) }}
+  {{ $totalRunTime = add $totalRunTime .Params.elapsedtime }}
+  {{ end }}
+  {{ end }}
+  {{ $totalWalkTime := 0 }}
+  {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+  {{ if (time .Params.startdate).After (time $startOfYear) }}
+  {{ $totalWalkTime = add $totalWalkTime .Params.elapsedtime }}
+  {{ end }}
+  {{ end }}
+  {{ $totalWorkoutTime := 0 }}
+  {{ range where .Site.AllPages "Params.sporttype" "Workout" }}
+  {{ if (time .Params.startdate).After (time $startOfYear) }}
+  {{ $totalWorkoutTime = add $totalWorkoutTime .Params.elapsedtime }}
+  {{ end }}
+  {{ end }}
+  {{ $totalStrengthTime := 0 }}
+  {{ range where .Site.AllPages "Params.sporttype" "WeightTraining" }}
+  {{ if (time .Params.startdate).After (time $startOfYear) }}
+  {{ $totalStrengthTime = add $totalStrengthTime .Params.elapsedtime }}
+  {{ end }}
+  {{ end }}
+  {{ $totalYogaTime := 0 }}
+  {{ range where .Site.AllPages "Params.sporttype" "Yoga" }}
+  {{ if (time .Params.startdate).After (time $startOfYear) }}
+  {{ $totalYogaTime = add $totalYogaTime .Params.elapsedtime }}
+  {{ end }}
+  {{ end }}
 
-      <script>
-	var totalRun = {{ $totalRunTime }};
-	var totalWalk = {{ $totalWalkTime }};
-	var totalWorkout = {{ $totalWorkoutTime }};
-	var totalStrength = {{ $totalStrengthTime }};
-	var totalYoga = {{ $totalYogaTime }};
-      </script>
-      </div>
-      <div class="chart-container" style="position: relative; margin:auto;">
-	<canvas id="totalsPie"></canvas>
-      </div>
-  </div>
+  <script>
+    var totalRun = {{ $totalRunTime }};
+    var totalWalk = {{ $totalWalkTime }};
+    var totalWorkout = {{ $totalWorkoutTime }};
+    var totalStrength = {{ $totalStrengthTime }};
+    var totalYoga = {{ $totalYogaTime }};
+  </script>
+</div>
+<div class="chart-container" style="position: relative; margin:auto;">
+  <canvas id="totalsPie"></canvas>
+</div>

@@ -24,7 +24,6 @@
                         {{ .Title | markdownify }}
                     </h1>
                     <div class="subtitle is-3 {{ if or (.Site.Params.fadeIn | default true) .Site.Params.fadeInIndex }}fade-in two{{ end }}">
-                        {{ .Content }}
                     </div>
                     <!-- End title and tagline -->
                     <!-- Some social icons -->
@@ -40,111 +39,122 @@
                 {{ partial "nav.html" . }}
             </div>
         </section> <!-- Done with Hero -->
-
         <!-- End top social icons -->
-	{{ partial "home/activity-summary.html" . }}
+	<div class="section" id="{{ .Title | urlize }}">
+	  <!-- Begin activity summary container -->
+	  <div class="container tile is-ancestor">
+            {{ with .Site.GetPage "/home" }}
+	    <div class="markdown tile is-parent is-vertical is-6">
+	      <article class="tile is-child notification is-primary">
+		{{ .Content }}
+		</article>
+	    </div>
+	    <div class="tile is-parent">
+	    <article class="tile is-child is-info is-2">
+	    {{ partial "home/activity-summary.html" . }}
+	    </article>
+	    </div>
+            {{ $home := . }}
+	    
+            {{ $pages := .Resources.ByType "page" }}
 
-        {{ with .Site.GetPage "/home" }}
-        {{ $home := . }}
-        {{ $pages := .Resources.ByType "page" }}
-
-        {{ with .Site.GetPage "/run" }}
+            {{ with .Site.GetPage "/run" }}
             {{ $pages = $pages | append . }}
-        {{ end }}
+            {{ end }}
 
-        {{ with .Site.GetPage "/projects" }}
+            {{ with .Site.GetPage "/projects" }}
             {{ $pages = $pages | append . }}
-        {{ end }}
+            {{ end }}
 
-        {{ range sort $pages "Params.weight" }}
-        {{ if ne .Name "contact.md" }}
-        {{ if .File }}
-        {{ if eq (os.Stat .File.Dir).Name "projects" }}
+            {{ range sort $pages "Params.weight" }}
+            {{ if ne .Name "contact.md" }}
+            {{ if .File }}
+            {{ if eq (os.Stat .File.Dir).Name "projects" }}
             <!-- Now for some cool projects -->
             {{ partial "home/projects.html" . }}
-        {{ else if eq (os.Stat .File.Dir).Name "run" }}
+            {{ else if eq (os.Stat .File.Dir).Name "run" }}
             <!-- Let`s show some blog posts -->
             {{ partial "home/activity.html" . }}
-        {{ else }}
-
-        <!-- Range through all sections in /home execept contact.md -->
-        <div class="section" id="{{ .File.TranslationBaseName }}">
+            {{ else }}
+	  </div>
+          <!-- Range through all sections in /home execept contact.md -->
+          <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container">
-                <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
-                {{ if .Params.Image }}
-                <div class="columns">
-                    <div class="column is-one-third has-text-centered">
-                        {{ with $home.Resources.GetMatch .Params.Image }}
-                        {{ with .Resize "320x" }}
-                        <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                    <div class="markdown column">
-                        {{ .Content }}
-                    </div>
+              <h2 class="title is-2 has-text-centered">{{ .Title | markdownify }}</h2>
+              {{ if .Params.Image }}
+              <div class="columns">
+                <div class="column is-one-third has-text-centered">
+                  {{ with $home.Resources.GetMatch .Params.Image }}
+                  {{ with .Resize "320x" }}
+                  <img class="img-responsive avatar" src="{{ .Permalink }}" alt="{{ .Name }}">
+                  {{ end }}
+                  {{ end }}
                 </div>
-                {{ else }}
-                <div class="markdown has-text-centered">
-                    {{ .Content }}
+                <div class="markdown column">
+                  {{ .Content }}
                 </div>
-                {{ end }}
+              </div>
+              {{ else }}
+              <div class="markdown has-text-centered">
+                {{ .Content }}
+              </div>
+              {{ end }}
             </div>
             <!-- End About container-->
             {{ partial "top-icon.html" . }}
-        </div>
-        <div class="container">
+          </div>
+          <div class="container">
             <hr>
-        </div>
-        {{ end }}
-        {{ end }}
-        {{ end }}
-        {{ end }}
-        <!-- Let`s chat, shall we? -->
-        {{ with .Resources.GetMatch "contact.md" }}
-        <div class="section" id="{{ .File.TranslationBaseName }}">
+          </div>
+          {{ end }}
+          {{ end }}
+          {{ end }}
+          {{ end }}
+          <!-- Let`s chat, shall we? -->
+          {{ with .Resources.GetMatch "contact.md" }}
+          <div class="section" id="{{ .File.TranslationBaseName }}">
             <div class="container has-text-centered">
-                <h2 class="title is-2">{{ .Title | markdownify }}</h2>
-                <div class="markdown">
-                    {{ .Content }}
-                </div>
-                {{ if .Site.Params.home.localTime }}
-                <p>{{ i18n "index_currentTime" . }} <span id="time"></span>.</p>
-                {{ end }}
-                {{ with .Site.Params.email }}
-                <h3 class="subtitle is-3 has-text-centered top-pad">
-                    <a href="mailto:{{ . }}">{{ . }}</a>
-                </h3>
-                {{ end }}
-                {{ partial "home/social.html" . }}
+              <h2 class="title is-2">{{ .Title | markdownify }}</h2>
+              <div class="markdown">
+                {{ .Content }}
+              </div>
+              {{ if .Site.Params.home.localTime }}
+              <p>{{ i18n "index_currentTime" . }} <span id="time"></span>.</p>
+              {{ end }}
+              {{ with .Site.Params.email }}
+              <h3 class="subtitle is-3 has-text-centered top-pad">
+                <a href="mailto:{{ . }}">{{ . }}</a>
+              </h3>
+              {{ end }}
+              {{ partial "home/social.html" . }}
             </div>
             <!-- End Contact container -->
             {{ partial "top-icon.html" . }}
-        </div>
-        <div class="container">
+          </div>
+          <div class="container">
             <hr>
-        </div>
-        {{ end }}
-        <!-- End Contact section -->
-        {{ end }}
+          </div>
+          {{ end }}
+          <!-- End Contact section -->
+          {{ end }}
 
-        {{ partial "footer/text.html" . }}
+          {{ partial "footer/text.html" . }}
 
-        <!-- End of fade in three section -->
-        {{ partial "footer/scripts.html" . }}
-        {{ partial "js/owlCarousel.html" . }}
+          <!-- End of fade in three section -->
+          {{ partial "footer/scripts.html" . }}
+          {{ partial "js/owlCarousel.html" . }}
 
-        {{ if .Site.Params.home.localTime }}
-        <script>
+          {{ if .Site.Params.home.localTime }}
+          <script>
             function update_localtime() {
-                const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
-                document.getElementById('time').innerHTML = time;
+              const time = new Date().toLocaleTimeString('{{ .Site.Params.home.timeFormat }}', { timeZone: '{{ .Site.Params.home.timeZone }}', timeStyle: 'short' });
+              document.getElementById('time').innerHTML = time;
             }
             update_localtime();
             // Updating every second to prevent seconds looking like stood still when timeStyle is ignored.
             setInterval(update_localtime, 1000);
-        </script>
-        {{ end }}
+          </script>
+          {{ end }}
     </body>
 
 </html>
