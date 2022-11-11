@@ -12,7 +12,7 @@ Päädyit sivustolle mistä löytyy minun [Stravan](https://www.strava.com/athle
 Minusta
 ---
 
-Tasoltani olen keski-ikäinen tavisliigan lönköttelijä, joka harrastaa juoksua terveyden edistämiseksi. Pidemmän ajan tavoitteenani on käydä jokaisella Pirkanmaan neliökilometrillä juosten, kävellen tai soutaen. Tavoitteen edistymistä seuraan [Statshunters](https://www.statshunters.com/share/179518b9b42f)-palvelun avulla. Olen tällä hetkellä saavuttanut tavoitteesta alle 2%, joten voi olla että projekti jatkuu vielä eläkkeelläkin. Reittini suunnittelen [Komootin](https://www.komoot.com/) avulla, jonka kartat on osoittautunut hyvin tarkoiksi metsäpoluillakin. Tosin talvisin Komootiin sokea luottaminen on vienyt umpihankeen rämpimään ja loppusyksystä suolle kahlaamaan, joten suosittelen suunnittelemaan reitin muutenkin kun klikkaamalla lähtö- ja maalipistettä.
+Tasoltani olen keski-ikäinen tavisliigan lönköttelijä, joka harrastaa juoksua terveyden edistämiseksi. Pidemmän ajan tavoitteenani on käydä jokaisella Pirkanmaan neliökilometrillä juosten, kävellen tai soutaen. Tavoitteen edistymistä seuraan [Statshunters](https://www.statshunters.com/share/179518b9b42f)-palvelun avulla. Olen tällä hetkellä saavuttanut tavoitteesta alle 2%, joten voi olla että projekti jatkuu vielä eläkkeelläkin. Reittini suunnittelen [Komootin](https://www.komoot.com/) avulla, jonka kartat ovat osoittautuneet hyvin tarkoiksi metsäpoluillakin. Tosin talvisin Komootiin sokea luottaminen on vienyt umpihankeen rämpimään ja loppusyksystä suolle kahlaamaan, joten suosittelen suunnittelemaan reitin muutenkin kuin klikkaamalla lähtö- ja maalipistettä.
 
 Kootusti verkkopalvelut jotka ovat jääneet minulla käyttöön.
 
