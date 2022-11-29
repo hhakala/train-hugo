@@ -6,7 +6,7 @@
   {{ partial "total-year.html" . }}
       {{ if .Site.Params.home.showLatest | default true }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_workout" . }}</h2>
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_latest_mobility" . }}</h2>
       {{ range first 1 .Pages.ByPublishDate.Reverse }}
       <div class="summary">
 	{{ if .Params.date }}{{ .Date.Format (.Site.Params.dateFormat | default ":date_medium") }}{{ end }}
@@ -53,7 +53,7 @@
       {{ end }}
       {{ end }}
       <hr/>
-      <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_workout" . }}</h2>
-      {{ partial "workout/li.html" . }}
+      <h2 class="title is-2 top-pad">{{ i18n "index_activity_all_mobility" . }}</h2>
+      {{ partial "mobility/li.html" . }}
     </div>
     {{ end }}

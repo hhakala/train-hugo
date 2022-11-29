@@ -1,11 +1,13 @@
 <div class="table-container">
-  <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth" id="myTable">
+  <table class="table is-bordered is-striped is-narrow is-hoverable" id="myTable">
     <thead>
       <tr>
-	<th>Päiväys</th>
-	<th>Nimi</th>
-	<th>Syke keskiarvo</th>
-	<th>Syke maksimi</th>
+	<th>{{ i18n "date" . }}</th>
+	<th>{{ i18n "name" . }}</th>
+	<th>{{ i18n "distance" . }}</th>
+	<th>{{ i18n "average_heartrate" . }}</th>
+	<th>{{ i18n "max_heartrate" . }}</th>
+	<th>{{ i18n "elevation" . }}</th>
       </tr>
     </thead>
     <tbody>
@@ -13,8 +15,10 @@
       <tr>
 	<td data-order="{{ .Date.Unix }}">{{.Date.Day}}. {{i18n .Date.Month}} {{.Date.Year}}</td>
 	<td><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></td>
+	<td data-order="{{ .Params.distance }}">{{ .Params.distance }} m</td>
 	<td>{{ .Params.averageheartrate }}</td>
 	<td>{{ .Params.maxheartrate }}</td>
+	<td>{{ .Params.totalelevationgain }}</td>
       </tr>
       {{ end }}
     </tbody>

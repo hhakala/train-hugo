@@ -25,3 +25,95 @@
     other = "[**Introduction**](https://github.com/victoriadrake/hugo-theme-introduction/) theme for [Hugo](http://gohugo.io/). Made with [<i class=\"fa fa-heart\"></i> and <i class=\"fa fa-coffee\"></i>](https://victoria.dev) by open source contributors."
 [index_activity_latestActivity]
     other = "Latest activity"
+[duration]
+    other = "Duration"
+[distance]
+    other = "Distance"
+[average_heartrate]
+    other = "Avg heartrate"
+[max_heartrate]
+    other = "Max heartrate"
+[elevation]
+    other = "Elevation"
+[summary_run]
+    other = "Run"
+[summary_walk]
+    other = "Walk"
+[summary_mobility]
+    other = "Mobility"
+[summary_strength_training]
+    other = "Strength training"
+[summary_yoga]
+    other = "Yoga"
+[January]
+    other = "January"
+[February]
+    other = "February"
+[March]
+    other = "March"
+[April]
+    other = "April"
+[May]
+    other = "May"
+[June]
+    other = "June"
+[July]
+    other = "July"
+[August]
+    other = "August"
+[September]
+    other = "September"
+[October]
+    other = "October"
+[November]
+    other = "November"
+[December]
+    other = "December"
+[index_activity_latest_run]
+    other = "Latest run"
+[index_activity_all_run]
+    other = "All runs"
+[index_activity_latest_walk]
+    other = "Latest walk"
+[index_activity_all_walk]
+    other = "All walks"
+[index_activity_latest_mobility]
+    other = "Latest mobility"
+[index_activity_all_mobility]
+    other = "All mobility trainings"
+[index_activity_latest_weighttraining]
+    other = "Latest weight training"
+[index_activity_all_weighttraining]
+    other = "All weight trainings"
+[index_activity_latest_yoga]
+    other = "Latest yoga"
+[index_activity_all_yoga]
+    other = "All yogas"
+[index_activity_latest_rowing]
+    other = "Latest row"
+[index_activity_all_rowing]
+    other = "All rowings"
+[total_last_12_months]
+    other = "Total in last 12 months"
+[in_year]
+    other = "Year"
+[day]
+    other = "day"
+[days]
+    other = "days"
+[hour]
+    other = "hour"
+[hours]
+    other = "hours"
+[minute]
+    other = "minute"
+[minutes]
+    other = "minutes"
+[second]
+    other = "second"
+[seconds]
+    other = "seconds"
+[name]
+    other = "Name"
+[date]
+    other = "Date"

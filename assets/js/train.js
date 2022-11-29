@@ -9,11 +9,11 @@ function initSummaryPie(){
   if ( $( "#totalsPie" ).length ) {
     var summaryData = {
       labels: [
-	'Juoksu',
-	'Kävely',
-	'Liikkuvuus',
-	'Voima',
-	'Jooga'
+	translated["run"],
+	translated["walk"],
+	translated["mobility"],
+	translated["strength"],
+	translated["yoga"]
       ],
       datasets: [{
 	label: 'Vuosi 2022',
@@ -200,10 +200,10 @@ function secondsToDhms(seconds) {
   var m = Math.floor(seconds % 3600 / 60);
   var s = Math.floor(seconds % 60);
 
-  var dDisplay = d > 0 ? d + (d == 1 ? " päivä, " : " päivää, ") : "";
-  var hDisplay = h > 0 ? h + (h == 1 ? " tunti, " : " tuntia, ") : "";
-  var mDisplay = m > 0 ? m + (m == 1 ? " minuutti, " : " minuuttia, ") : "";
-  var sDisplay = s > 0 ? s + (s == 1 ? " sekunti" : " sekuntia") : "";
+  var dDisplay = d > 0 ? d + (d == 1 ? " "+translated["day"]+", " : " "+translated["days"]+", ") : "";
+  var hDisplay = h > 0 ? h + (h == 1 ? " "+translated["hour"]+", " : " "+translated["hours"]+", ") : "";
+  var mDisplay = m > 0 ? m + (m == 1 ? " "+translated["minute"]+", " : " "+translated["minutes"]+", ") : "";
+  var sDisplay = s > 0 ? s + (s == 1 ? " "+translated["second"] : translated["seconds"]) : "";
 
   return (dDisplay + hDisplay + mDisplay ).replace(/,\s*$/, "")
 }

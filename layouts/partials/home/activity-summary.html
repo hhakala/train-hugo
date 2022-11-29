@@ -1,21 +1,21 @@
 {{ $thisYear := now.Year }}
-<h2 class="title is-2 has-text-centered">Vuonna {{ $thisYear }}</h2>
+<h2 class="title is-2 has-text-centered">{{ i18n "in_year" . }} {{ $thisYear }}</h2>
 <div class="summary">
   {{ $startOfYear := printf "%d-01-01 00:00:00" $thisYear }}
   {{ $totalRunTime := 0 }}
-  {{ range where .Site.AllPages "Params.sporttype" "Run" }}
+  {{ range where (where .Site.AllPages "Params.sporttype" "Run") ".Page.Type" "==" "run"}}
   {{ if (time .Params.startdate).After (time $startOfYear) }}
   {{ $totalRunTime = add $totalRunTime .Params.elapsedtime }}
   {{ end }}
   {{ end }}
   {{ $totalWalkTime := 0 }}
-  {{ range where .Site.AllPages "Params.sporttype" "Walk" }}
+  {{ range where (where .Site.AllPages "Params.sporttype" "Walk") ".Page.Type" "==" "walk"}}
   {{ if (time .Params.startdate).After (time $startOfYear) }}
   {{ $totalWalkTime = add $totalWalkTime .Params.elapsedtime }}
   {{ end }}
   {{ end }}
   {{ $totalWorkoutTime := 0 }}
-  {{ range where .Site.AllPages "Params.sporttype" "Workout" }}
+  {{ range where (where .Site.AllPages "Params.sporttype" "Workout") ".Page.Type" "==" "mobility"}}
   {{ if (time .Params.startdate).After (time $startOfYear) }}
   {{ $totalWorkoutTime = add $totalWorkoutTime .Params.elapsedtime }}
   {{ end }}
@@ -39,6 +39,21 @@
     var totalWorkout = {{ $totalWorkoutTime }};
     var totalStrength = {{ $totalStrengthTime }};
     var totalYoga = {{ $totalYogaTime }};
+
+    var translated = [];
+    translated["run"] = "{{ i18n "summary_run" . }}";
+    translated["walk"] = "{{ i18n "summary_walk" . }}";
+    translated["mobility"] = "{{ i18n "summary_mobility" . }}";
+    translated["strength"] = "{{ i18n "summary_strength_training" . }}";
+    translated["yoga"] = "{{ i18n "summary_yoga" . }}";
+    translated["day"] = "{{ i18n "day" . }}";
+    translated["days"] = "{{ i18n "days" . }}";
+    translated["hour"] = "{{ i18n "hour" . }}";
+    translated["hours"] = "{{ i18n "hours" . }}";
+    translated["minute"] = "{{ i18n "minute" . }}";
+    translated["minutes"] = "{{ i18n "minutes" . }}";
+    translated["second"] = "{{ i18n "second" . }}";
+    translated["seconds"] = "{{ i18n "seconds" . }}";
   </script>
 </div>
 <div class="chart-container" style="position: relative; margin:auto;">

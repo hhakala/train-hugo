@@ -31,12 +31,18 @@
     other = "Sykkeen keskiarvo"
 [max_heartrate]
     other = "Maksimisyke"
+[elevation]
+    other = "Nousu"    
 [summary_run]
     other = "Juoksu"
 [summary_walk]
     other = "Kävely"
-[summary_workout]
-    other = "Liikkuvuus- ja voimaharjoitukset"
+[summary_mobility]
+    other = "Liikkuvuusharjoitukset"
+[summary_strength_training]
+    other = "Voimaharjoitukset"
+[summary_yoga]
+    other = "Jooga"    
 [January]
     other = "tammikuu"
 [February]
@@ -69,9 +75,9 @@
     other = "Viimeisin kävely"
 [index_activity_all_walk]
     other = "Kaikki kävelyt"
-[index_activity_latest_workout]
+[index_activity_latest_mobility]
     other = "Viimeisin liikkuvuusharjoitus"
-[index_activity_all_workout]
+[index_activity_all_mobility]
     other = "Kaikki liikkuvuusharjoitukset"
 [index_activity_latest_weighttraining]
     other = "Viimeisin voimaharjoitus"
@@ -87,3 +93,5 @@
     other = "Kaikki soutuharjoitukset"
 [total_last_12_months]
     other = "Yhteensä edeltävän 12kk aikana"
+[in_year]
+    other = "Vuonna"

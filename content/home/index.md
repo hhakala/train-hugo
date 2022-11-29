@@ -1,20 +1,20 @@
 ---
-title: "Heikki Hakalan urheilublogi"
+title: "Sport statistics of Heikki Hakala"
 draft: false
 weight: 0
 ---
 
-Moro!
+Hi!
 ---
 
-Päädyit sivustolle mistä löytyy minun [Stravan](https://www.strava.com/athletes/71447788) datasta muodostetut tilastot urheiluhistoriastani. Sivuston lähdekoodi löytyy [Githubista](https://github.com/hhakala/train-hugo), tosin en ole vielä julkaissut työkalua jolla itse data parsitaan Strava API:sta. Tavoiteenani on kuitenkin julkaista paketti jolla Stravan käyttäjät voi julkaista samanlaisen [Hugo](https://gohugo.io)-sivuston. Teknisenä etuna Hugossa on sivuston staattisuus, sivusto on pelkkää Javascriptillä koristeltua HTML:ää, joten julkaisu onnistuu veloituksetta esimerkiksi [Github Pagena](https://pages.github.com/) tai [Cloudflare Pagena](https://pages.cloudflare.com/).
+You reached my sport statistics site based on my [Strava](https://www.strava.com/athletes/71447788) data. Site source code is in [Github](https://github.com/hhakala/train-hugo), but I haven't released Strava API parser yet. My goal is to release package which helps you to create similar [Hugo](https://gohugo.io) site. Technical advantage of Hugo is its static nature, site is only Javascript decorated HTML, so publishing it is free of charge for example as [Github Page](https://pages.github.com/) or [Cloudflare Page](https://pages.cloudflare.com/).
 
-Minusta
+About me
 ---
 
-Tasoltani olen keski-ikäinen tavisliigan lönköttelijä, joka harrastaa juoksua terveyden edistämiseksi. Pidemmän ajan tavoitteenani on käydä jokaisella Pirkanmaan neliökilometrillä juosten, kävellen tai soutaen. Tavoitteen edistymistä seuraan [Statshunters](https://www.statshunters.com/share/179518b9b42f)-palvelun avulla. Olen tällä hetkellä saavuttanut tavoitteesta alle 2%, joten voi olla että projekti jatkuu vielä eläkkeelläkin. Reittini suunnittelen [Komootin](https://www.komoot.com/) avulla, jonka kartat ovat osoittautuneet hyvin tarkoiksi metsäpoluillakin. Tosin talvisin Komootiin sokea luottaminen on vienyt umpihankeen rämpimään ja loppusyksystä suolle kahlaamaan, joten suosittelen suunnittelemaan reitin muutenkin kuin klikkaamalla lähtö- ja maalipistettä.
+I'm middle aged mediocre jogger, who runs mainly to avoid health pitfalls of getting older. My long term goal is to visit every square kilometer in my province Pirkanmaa, either by running, walking or rowing. I'm tracking my goal progression with [Statshunters](https://www.statshunters.com/share/179518b9b42f). At the moment my progression is below 2%, so project probably continues well after my retirement. I plan my routes with [Komoot](https://www.komoot.com/), which has been suprisingly good even in deep forest tracks. There are exceptions in winter and fall though, I have found myself wading thru deep snow and flooded swamps when my route planning has been only carefree clicking at start and end positions.
 
-Kootusti verkkopalvelut jotka ovat jääneet minulla käyttöön.
+Summary of sites I use and recommend
 
 - [Polar Flow](https://flow.polar.com/training/profiles/48661805)
 - [Strava](https://www.strava.com/athletes/71447788)

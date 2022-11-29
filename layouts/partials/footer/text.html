@@ -1,10 +1,10 @@
 <div class="section" id="footer">
-    <div class="container has-text-centered">
-    {{ with .Site.Params.footerText }}
-        {{ . | markdownify }}
+    <div class="container has-text-centered" style="font-size:0.75em">
+    <i>{{ with .Site.Params.footerText }}
+        {{ . | markdownify }}</i>
     {{ else }}
         <span class="footer-text">
-            {{ i18n "footer_text" . | markdownify }}
+            <i>{{ i18n "footer_text" . | markdownify }}</i>
         </span>
     {{ end }}
     </div>

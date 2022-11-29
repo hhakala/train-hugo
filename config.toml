@@ -1,6 +1,6 @@
 baseURL = 'https://blog.heikkihakala.fi'
-languageCode = 'fi'
-defaultContentLanguage = 'fi'
+languageCode = 'en'
+defaultContentLanguage = 'en'
 title = 'Heikki Hakala'
 theme = 'introduction'
 
@@ -32,43 +32,78 @@ twitter                  = true
 
 # If you don't want to use the default menu, you can define one by yourself
 [[menu.main]]
-    name    = "Etusivu"
+    name    = "Home"
     url     = "/"
     weight  = 1
 [[menu.main]]
-    name    = "Juoksu"
+    name    = "Run"
     url     = "/run/"
     weight  = 2
 [[menu.main]]
-    name    = "Kävely"
+    name    = "Walk"
     url     = "/walk/"
     weight  = 3
 [[menu.main]]
-    name    = "Liikkuvuus"
-    url     = "/workout/"
+    name    = "Mobility"
+    url     = "/mobility/"
     weight  = 4
 [[menu.main]]
-    name    = "Voima"
+    name    = "Weight training"
     url     = "/weighttraining/"
     weight  = 5
 [[menu.main]]
-    name    = "Jooga"
+    name    = "Yoga"
     url     = "/yoga/"
     weight  = 6
 [[menu.main]]
-    name    = "Soutu"
+    name    = "Rowing"
     url     = "/rowing/"
     weight  = 7
-
-
 
 [languages]
     [languages.fi]
         languageName     = "Suomi"
         languageCode     = "fi"
-        contentDir       = "content/"
+        contentDir       = "content/fi/"
         weight           = 0
         title            = "Heikki Hakalan urheilublogi"
+	[[languages.fi.menu.main]]
+	    name    = "Etusivu"
+	    url     = "/"
+	    weight  = 1
+	[[languages.fi.menu.main]]
+	    name    = "Juoksu"
+	    url     = "/run/"
+	    weight  = 2
+    	[[languages.fi.menu.main]]
+	    name    = "Kävely"
+	    url     = "/kävely/"
+	    weight  = 3
+	[[languages.fi.menu.main]]
+	    name    = "Liikkuvuus"
+	    url     = "/liikkuvuus/"
+	    weight  = 4
+	[[languages.fi.menu.main]]
+	    name    = "Voima"
+	    url     = "/voima/"
+	    weight  = 5
+	[[languages.fi.menu.main]]
+	    name    = "Jooga"
+	    url     = "/jooga/"
+	    weight  = 6
+	[[languages.fi.menu.main]]
+	    name    = "Soutu"
+	    url     = "/soutu/"
+	    weight  = 7
         [languages.fi.params]
             description  = "Heikki Hakalan urheilublogi"
             footerText   = "”Jokainen syy, joka estää kuntoilun, on tekosyy.” -Urho Kekkonen"
+    [languages.en]
+        languageName     = "English"
+        languageCode     = "en"
+        contentDir       = "content/"
+        weight           = 0
+        title            = "Sport statistics of Heikki Hakala"
+        [languages.en.params]
+            description  = "Sport statistics of Heikki Hakala"
+            footerText   = "”Exercise and application produce order in our affairs, health of body, cheerfulness of mind, and these make us precious to our friends.” -Thomas Jefferson"
